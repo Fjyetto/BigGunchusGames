@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-image: url('media/guch.png');
 	background-size: cover;
@@ -107,7 +111,8 @@ li > a:hover {
 	margin: 20px;
 	background-color: #fff;
 	border: black 1px solid;
-	width: 30%;
+	width: 37%;
 	border-radius: 7px;
 	display:flex;
+	justify-content: space-around;
 }
