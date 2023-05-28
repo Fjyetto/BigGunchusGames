@@ -1,0 +1,53 @@
+body {
+	background-image: url('media/guch.png');
+	background-size: cover;
+	image-rendering: pixelated;
+	margin: 0px;
+	font-family: arial, helvetica, sans-serif;
+}
+
+@font-face {
+	font-family: shinGoPro;
+	src: url('media/ATTFShinGoProMedium.ttf');
+}
+
+.top {
+	font-family: shinGoPro;
+	
+	width: 800px;
+	height: 5em;
+	/*background-color: #d78dec;
+	border-radius: 0px 0px 7px 7px;*/
+
+	background: rgb(26,19,29);
+	background: linear-gradient(0deg, rgba(64, 39, 100) 0%, rgba(105,62,125,1) 11%, rgba(175,77,204,1) 77%, rgba(236,170,254,1) 100%);
+
+	border: black 1px solid;
+	border-top: #d78dec 1px solid;
+	display:flex;
+	box-shadow: #222 0px 0px 9px 0px;
+
+}
+
+.top > ul {
+	display: flex;
+	width: 100%;
+	padding: 0px 45px;
+	justify-content: space-between;
+	margin: 0px 20px;
+	list-style: none;
+	height:100%;
+	align-items: center;
+}
+
+li > a {
+	color: #2F4;
+	text-decoration: none;
+	font-size: 22px;
+	box-shadow: black 0px 0px 2px 0px;
+	padding: 25px 15px;
+}
+li > a:hover {
+	box-shadow: black 0px 0px 4px 0px;
+	text-shadow: #0f0 0px 0px 3px;
+}
