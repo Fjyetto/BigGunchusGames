@@ -3,7 +3,7 @@ body {
 	background-size: cover;
 	image-rendering: pixelated;
 	margin: 0px;
-	font-family: arial, helvetica, sans-serif;
+	font-family: 'Roboto Condensed', arial, sans-serif;
 }
 
 @font-face {
@@ -11,13 +11,13 @@ body {
 	src: url('media/ATTFShinGoProMedium.ttf');
 }
 
-.top {
+/*.top {
 	font-family: shinGoPro;
 	
 	width: 800px;
 	height: 5em;
 	/*background-color: #d78dec;
-	border-radius: 0px 0px 7px 7px;*/
+	border-radius: 0px 0px 7px 7px;
 
 	background: rgb(26,19,29);
 	background: linear-gradient(0deg, rgba(64, 39, 100) 0%, rgba(105,62,125,1) 11%, rgba(175,77,204,1) 77%, rgba(236,170,254,1) 100%);
@@ -27,6 +27,56 @@ body {
 	display:flex;
 	box-shadow: #222 0px 0px 9px 0px;
 
+}*/
+
+.top {
+	font-family: shinGoPro;
+	
+	width: 800px;
+	height: 6em;
+	background-color: #fff;
+	border-radius: 0px 0px 7px 7px;
+
+	/*border: black 1px solid;*/
+
+	box-shadow: white 0px 0px 8px 6px;
+
+	border-top: #fff 1px solid;
+	display:flex;
+
+}
+
+hr.solid {
+	border-top: 1px solid #000;
+}
+hr {
+	width: 80%;
+}
+
+h1 {
+	font-family: shinGoPro;
+}
+
+.upright {
+	flex-direction: column;
+}
+.downright {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.downright > figure {
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 3px;
+	margin: 16px 10px;
+}
+
+ul {
+	list-style: none;
+	padding: 0px;
 }
 
 .top > ul {
@@ -35,19 +85,29 @@ body {
 	padding: 0px 45px;
 	justify-content: space-between;
 	margin: 0px 20px;
-	list-style: none;
 	height:100%;
 	align-items: center;
 }
 
 li > a {
-	color: #2F4;
+	color: #DD00E0;
 	text-decoration: none;
 	font-size: 22px;
-	box-shadow: black 0px 0px 2px 0px;
+	/*box-shadow: #383630 0px 0px 3px 0px;*/
+	border: #FE9 2px solid;
 	padding: 25px 15px;
 }
 li > a:hover {
-	box-shadow: black 0px 0px 4px 0px;
-	text-shadow: #0f0 0px 0px 3px;
+	box-shadow: #fffe50 0px 0px 4px 1px;
+	text-shadow: #f0f 0px 0px 3px;
+}
+
+.box {
+	padding: 15px;
+	margin: 20px;
+	background-color: #fff;
+	border: black 1px solid;
+	width: 30%;
+	border-radius: 7px;
+	display:flex;
 }

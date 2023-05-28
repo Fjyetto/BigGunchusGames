@@ -2,22 +2,95 @@
 <html>
 	<head>
 		<title>Big Gunchus</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="icon" href="/favicon.ico">
+		<!--<link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">-->
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="/3.2-video-js.css" type="text/css">
+		<script src="/3.2-video.js"></script>
 	</head>
 	<body topmargin="0">
 		<center>
 			<div class='top'>
-				<img src="media/shrek_180x150.jpg">
+				<img src="/media/guch_180x150.jpg">
 				<ul>
+					<li><a href="/">Home</a></li>
 					<li><a href="#">Games</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="#">Gallery</a></li>
 					<li><a href="#">Gunchus</a></li>
 				</ul>
 			</div>
+			<div class="box upright">
+				<h1>Welcome to Big Gunchus' WebPage</h1>
+				<p>The internet's only website dedicated to Big Gunchus Roleplay (as of may 28th 2023)</p>
+
+				<hr class="solid">
+
+				<h2>What is Big Gunchus?</h2>
+				<p>Big Gunchus is the character from the ongoing project <a href="https://www.roblox.com/games/11781203802/Big-Gunchus-Roleplay-Alpha">Big Gunchus Roleplay</a><br>
+				Big Gunchus is a parody of widely-known <em>Big Chungus</em>. 
+				<div class="downright" style="width: 98%; align-self: center;">
+					<figure>
+					  <img src="media/gunchren.png"
+					    width="128" height="128"
+					    alt="Gunchus render">
+					  <figcaption> Fig. 1 Big Gunchus render</figcaption>
+					</figure>
+					<figure>
+					  <img src="media/gunchren2.png"
+					    width="128" height="128"
+					    alt="Gunchus render">
+					  <figcaption> Fig. 2 Big Gunchus render</figcaption>
+					</figure>
+					<figure>
+					  <img src="media/gunchren3.png"
+					    width="128" height="128"
+					    alt="Gunchus render">
+					  <figcaption> Fig. 3 Big Gunchus render</figcaption>
+					</figure>
+					<figure>
+					  <img src="media/gunchren4.png"
+					    width="128" height="128"
+					    alt="Gunchus render">
+					  <figcaption> Fig. 4 Big Gunchus render</figcaption>
+					</figure>
+				</div>
+				</p>
+
+			</div>
+			<div class="box">
+				<video
+    id="my-video"
+    class="video-js vjs-default-skin"
+    controls
+    preload="auto"
+    width="320"
+    height="240"
+    poster="media/thub.jpg"
+    data-setup="{}"
+  >
+    <source src="/media/Big gunchus.mp4" type="video/mp4" />
+    <source src="/media/Big gunchus.webm" type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  <script>var homePlayer=_V_("my-video");</script>
+  <ul>
+  	<li>this is a cool video about warius</li>
+  	<li>feel free to download</li>
+  </ul>
+			</div>
+
 		<p>Expect...</p>
 		<ul>
 			<li>Big Gunchi</li>
-			<li>Website</li>
 			<li>Information</li>
 			<li>Big AI</li>
 			<li>Games</li>
@@ -27,5 +100,6 @@
 			<li>Purple</li>
 		</ul>
 		</center>
+		<!--<script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>-->
 	</body>
 </html>
