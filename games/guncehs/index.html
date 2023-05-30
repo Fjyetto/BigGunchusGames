@@ -34,9 +34,25 @@
 					<li><a href="/contact/">Contact</a></li>
 				</ul>
 			</div>
-			<div class="box upright">
+			<div class="box upright" id="main">
 				<h1>Game</h1>
-				<a>sorry its not done yet</a>
+				<script>
+					let app = new PIXI.Application({ width: 560, height: 480 });
+					document.getElementById('main').appendChild(app.view);
+					
+					let sprite = PIXI.Sprite.from('gunchus.svg');
+					app.stage.addChild(sprite);
+					let elapsed = 0.0;
+					// Tell our application's ticker to run a new callback every frame, passing
+					// in the amount of time that has passed since the last tick
+					app.ticker.add((delta) => {
+						// Add the time to our total elapsed time
+						elapsed += delta;
+						// Update the sprite's X position based on the cosine of our elapsed time.  We divide
+						// by 50 to slow the animation down a bit...
+						sprite.x = 100.0 + Math.cos(elapsed/50.0) * 100.0;
+					});
+				</script>
 				<img src="/media/javanow.gif">
 			</div>
 		</center>
