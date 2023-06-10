@@ -2,7 +2,11 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, 600 / 400, 0.1, 1000 );
+let tata = new THREE.TextureLoader().load("box/bg.png");
+tata.magFilter = THREE.NearestFilter;
+tata.minFilter = THREE.NearestFilter;
+scene.background = tata;
+const camera = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
 
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 
@@ -10,15 +14,15 @@ const controls = new OrbitControls( camera, renderer.domElement );
 
 const max = Math.max(window.innerWidth, window.innerHeight)
 
-let w=0;
-let h=0;
-if (max==window.innerWidth){
+let w=256;
+let h=256;
+/*if (max==window.innerWidth){
 	h = window.innerHeight;
 	w = (h/3)*4;
 }else{
 	w = window.innerWidth;
 	h = (w/4)*3;
-}
+}*/
 renderer.setSize( w,h );
 
 document.getElementById("gaming").appendChild( renderer.domElement );
@@ -27,7 +31,7 @@ function rad(deg) {
   return deg * (Math.PI / 180);
 }
 
-const loader = new THREE.CubeTextureLoader();
+/*const loader = new THREE.CubeTextureLoader();
 loader.setPath( 'box/' );
 const boxt = loader.load( [
 	'px.png', 'nx.png',
@@ -37,10 +41,32 @@ const boxt = loader.load( [
 
 boxt.magFilter = THREE.NearestFilter;
 boxt.minFilter = THREE.NearestFilter;
-const boxm = new THREE.MeshBasicMaterial( { map: boxt } );
+const boxm = new THREE.MeshBasicMaterial( { envMap: boxt } );*/
+const tload = new THREE.TextureLoader()
+
+function tloadF(path){
+	let t = new THREE.TextureLoader().load(path);
+	t.magFilter = THREE.NearestFilter;
+	t.minFilter = THREE.NearestFilter;
+	let mat = new THREE.MeshBasicMaterial({map:t});
+	return mat;
+}
 
 const geometry = new THREE.BoxGeometry(5.3,7.5,0.5);
-const ncube = new THREE.Mesh( geometry,boxm );
+const pat = "box/"
+var material = [
+	tloadF(pat+'px.png'),
+	tloadF(pat+'nx.png'),      
+	tloadF(pat+'py.png'),
+	tloadF(pat+'ny.png'),
+	tloadF(pat+'pz.png'),
+	tloadF(pat+'nz.png')
+];
+
+const ncube = new THREE.Mesh( geometry,material );
+
+ncube.doubleSided = true;
+
 scene.add( ncube );
 ncube.rotation.copy(new THREE.Euler(rad(7),rad(30),rad(0),'XYZ'));
 
