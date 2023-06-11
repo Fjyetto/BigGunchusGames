@@ -11,3 +11,4 @@ if(window.innerHeight > window.innerWidth){
 		element.classList.add('boxmob');
 	});
 }
+

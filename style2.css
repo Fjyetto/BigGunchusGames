@@ -1,0 +1,25 @@
+body {
+	background-image: url("/media/guchds.png");
+	-o-background-size: cover;
+	font-size: 10px;
+}
+a {
+	font-size: 12px;
+	border: #FE9 1px solid;
+	text-decoration: none;
+}
+.box {
+	padding: 2px 3px;
+	margin: 4px 0px;
+	background-color: #fff;
+	border: black 1px solid;
+	width: 237px;
+}
+
+.downright > figure {
+	overflow:hidden;
+}
+
+.downright > figure > img {
+	width: 160px;
+}
