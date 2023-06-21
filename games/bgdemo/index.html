@@ -35,19 +35,22 @@
 			align-items: center;
 		}
 		</style>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="/dscompat.js"></script>
 	</head>
 	<body topmargin="0">
 		<center>
-			<div class='top'>
-				<img src="/media/guch_180x150.jpg">
-				<ul id="navba">
-					<li><a href="/">Home</a></li>
-					<li><a href="/games/">Games</a></li>
-					<li><a href="/gallery/">Gallery</a></li>
-					<li><a href="/contact/">Contact</a></li>
-				</ul>
+			<!--Navigation bar-->
+			<div class='top' id="nav-placeholder">
+				
 			</div>
+
+			<script>
+			$(function(){
+			  $("#nav-placeholder").load("/nav.html");
+			});
+			</script>
+			<!--end of Navigation bar-->
 			<div class="box upright" id="gaming">
 				<h1>Game Demo Demo</h1>
 				<script src="js/js.js" type="module"></script>

@@ -24,19 +24,22 @@
 		<meta property="og:image" content="http://big.gunchus.zip/media/guch_180x150.jpg" />
 		<meta property="og:image:alt" content="Box art of BIG GUNCHUS" />
 		
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="/dscompat.js"></script>
 	</head>
 	<body topmargin="0">
 		<center>
-			<div class='top'>
-				<img src="/media/guch_180x150.jpg">
-				<ul id="navba">
-					<li><a href="/">Home</a></li>
-					<li><a href="/games/">Games</a></li>
-					<li><a href="/gallery/">Gallery</a></li>
-					<li><a href="/contact/">Contact</a></li>
-				</ul>
+			<!--Navigation bar-->
+			<div class='top' id="nav-placeholder">
+				
 			</div>
+
+			<script>
+			$(function(){
+			  $("#nav-placeholder").load("/nav.html");
+			});
+			</script>
+			<!--end of Navigation bar-->
 			<div class="box upright">
 				<h1>Games</h1>
 
@@ -63,6 +66,5 @@
 			</div>
 		</center>
 		<script src="/common.js"></script>
-		<!--<script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>-->
 	</body>
 </html>
