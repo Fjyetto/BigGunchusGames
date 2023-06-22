@@ -1,3 +1,19 @@
+function load(url, targetSelector, callback) {
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
+      const targetElement = document.querySelector(targetSelector);
+      if (targetElement) {
+        targetElement.innerHTML = data;
+      }
+      if (callback && typeof callback === 'function') {
+        callback();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
 function oldremove(el){
 	var pn = el.parentNode;
 	pn.removeChild(el);
