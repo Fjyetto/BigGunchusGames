@@ -88,8 +88,7 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-	setCookie((elmnt.offsetTop - pos2),'cby',1);
-	setCookie((elmnt.offsetLeft - pos1),'cbx',1);
+	
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
@@ -97,6 +96,9 @@ function dragElement(elmnt) {
   function closeDragElement() {
     document.onmouseup = null;
     document.onmousemove = null;
+	
+	setCookie((elmnt.offsetTop - pos2),'cby',1);
+	setCookie((elmnt.offsetLeft - pos1),'cbx',1);
   }
 }
 		</script>
