@@ -37,6 +37,33 @@
 		// Make the DIV element draggable:
 dragElement(document.getElementById("ChatWindow"));
 
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+	let name = cname + "=";
+	let ca = document.cookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
+if (getCookie('cbx')!="") {
+	document.getElementById("ChatWindow").style.left = Math.max(Math.min(Number(getCookie('cbx')), document.clientWidth),0);
+	document.getElementById("ChatWindow").style.top =  Math.max(Math.min(Number(getCookie('cby')),document.clientHeight),0);
+}
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -61,6 +88,8 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
+	setCookie((elmnt.offsetTop - pos2),'cby',1);
+	setCookie((elmnt.offsetLeft - pos1),'cbx',1);
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
