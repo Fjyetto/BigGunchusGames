@@ -60,8 +60,8 @@ function getCookie(cname) {
 }
 
 if (getCookie('cbx')!="") {
-	document.getElementById("ChatWindow").style.left = Math.max(Math.min(Number(getCookie('cbx')), document.clientWidth),0);
-	document.getElementById("ChatWindow").style.top =  Math.max(Math.min(Number(getCookie('cby')),document.clientHeight),0);
+	document.getElementById("ChatWindow").style.left = Math.max(Math.min(Number(getCookie('cbx')), document.clientWidth),0)+"px";
+	document.getElementById("ChatWindow").style.top =  Math.max(Math.min(Number(getCookie('cby')),document.clientHeight),0)+"px";
 }
 
 function dragElement(elmnt) {
