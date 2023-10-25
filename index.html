@@ -29,7 +29,9 @@
 		<script src="/dscompat.js"></script>
 	</head>
 	<body topmargin="0">
-		<div style="border: solid black 1px; border-radius: 7px;position: absolute; padding-top: 20px; backdrop-filter: blur(7px) brightness(112%); z-index: 16;" id="ChatWindow">
+		<div style="border: solid black 1px; border-radius: 7px;position: absolute; padding-top: 20px; backdrop-filter: blur(7px) brightness(112%); z-index: 16;top: 20vh;
+  left: 25vw;
+  transform: translate(-50%);" id="ChatWindow">
 			<iframe id="ChatBox" sandbox="allow-forms allow-scripts" src="https://chat.gunchus.zip/" style="border: none; width: 320px; border-top: solid black 1px;"></iframe>
 			<!-- very nice iframe for chat if you didn't know -->
 		</div>
@@ -172,6 +174,50 @@ function dragElement(elmnt) {
   	<li>this is a cool video that summarizes big gunchus</li>
   	<li>feel free to download</li>
   </ul>
+			</div>
+			<style>
+textarea {
+	width: 80px;
+	height: 20px;
+	resize: none;
+	word-break: break-all;
+	overflow: hidden;
+}
+</style>
+			<div class="box upright">
+				<h1>You want to spread the word?</h1>
+				
+				<h2>Now, you can.</h2>
+
+				<hr class="solid">
+
+				<p>We provide an assortment of Buttons you can use to advertise our website:</p>
+				<div class="downright">
+					<figure>
+						<a href="https://big.gunchus.zip/"><img src="media/buttons/chusgun.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"></a>
+						<figcaption><textarea width="88" onclick="this.focus();this.select()" readonly="readonly">
+&lt;a href="https://big.gunchus.zip/"&gt;&lt;img src="https://big.gunchus.zip/media/buttons/chusgun.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"&gt;&lt;/a&gt;
+						</textarea></figcaption>
+					</figure>
+					<figure>
+						<a href="https://big.gunchus.zip/"><img src="media/buttons/gunchusbutton.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"></a>
+						<figcaption><textarea width="88" onclick="this.focus();this.select()" readonly="readonly">
+&lt;a href="https://big.gunchus.zip/"&gt;&lt;img src="https://big.gunchus.zip/media/buttons/gunchusbutton.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"&gt;&lt;/a&gt;
+						</textarea></figcaption>
+					</figure>
+					<figure>
+						<a href="https://big.gunchus.zip/"><img src="media/buttons/big_gunchus.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"></a>
+						<figcaption><textarea width="88" onclick="this.focus();this.select()" readonly="readonly">
+&lt;a href="https://big.gunchus.zip/"&gt;&lt;img src="https://big.gunchus.zip/media/buttons/big_gunchus.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"&gt;&lt;/a&gt;
+						</textarea></figcaption>
+					</figure>
+					<figure>
+						<a href="https://big.gunchus.zip/"><img src="media/buttons/spingunch.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"></a>
+						<figcaption><textarea width="88" onclick="this.focus();this.select()" readonly="readonly">
+&lt;a href="https://big.gunchus.zip/"&gt;&lt;img src="https://big.gunchus.zip/media/buttons/spingunch.gif" width="88" height="31" alt="Big Gunchus" title="Big Gunchus"&gt;&lt;/a&gt;
+						</textarea></figcaption>
+					</figure>
+				</div>
 			</div>
 		</center>
 		<script src="/common.js"></script>
