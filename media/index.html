@@ -1,13 +1,128 @@
+<!DOCTYPE html>
 <html><head>
 <title>Computer</title>
+<style>
+.dust {
+	background-color: #ef0aff;
+	width: 3px;
+	height: 3px;
+	box-shadow: #50fd 0px 0px 30px 6px;
+}
+</style>
 </head>
-<body style="background-image: url('https://big.gunchus.zip/media/puterRoom.png');background-size: cover;image-rendering: pixelated; margin:0px;">
+<body style="background-image: url('https://big.gunchus.zip/media/puterRoom.png');background-size: cover;image-rendering: pixelated; margin:0px; height: 100vh;">
 <audio src="gunchus_cave_ambience.mp3"></audio>
 <script>
+
+class PerlinNoise {
+  constructor() {
+    this.perm = [...Array(512)].map(() => Math.floor(Math.random() * 255));
+    this.gradP = [...Array(512)].map(() => {
+      const angle = Math.random() * 2 * Math.PI;
+      return { x: Math.cos(angle), y: Math.sin(angle) };
+    });
+  }
+
+  fade(t) {
+    return t * t * t * (t * (t * 6 - 15) + 10);
+  }
+
+  lerp(t, a, b) {
+    return a + t * (b - a);
+  }
+
+  grad(hash, x, y) {
+    const h = hash & 7; // Use low 3 bits for the gradient value
+    const u = h < 4 ? x : y; // Compute dot product of gradient with (x, y)
+    const v = h < 4 ? y : x;
+    return (h & 1 ? -u : u) + (h & 2 ? -2 * v : 2 * v);
+  }
+
+  noise(x, y) {
+    // Determine grid cell coordinates
+    const X = Math.floor(x) & 255;
+    const Y = Math.floor(y) & 255;
+
+    // Relative coordinates within the cell
+    x -= Math.floor(x);
+    y -= Math.floor(y);
+
+    // Compute fade curves for x and y
+    const u = this.fade(x);
+    const v = this.fade(y);
+
+    // Hash coordinates of the 4 cube corners
+    const a = this.perm[X] + Y;
+    const b = this.perm[X + 1] + Y;
+
+    // And add blended results from 2 corners of the cube
+    return this.lerp(v, this.lerp(u, this.grad(this.perm[a], x, y), this.grad(this.perm[b], x - 1, y)),
+                        this.lerp(u, this.grad(this.perm[a + 1], x, y - 1), this.grad(this.perm[b + 1], x - 1, y - 1)));
+  }
+
+  // You can use this noise function to generate 2D Perlin noise values.
+}
+
+const perlin = new PerlinNoise();
+
 window.addEventListener("DOMContentLoaded", event => {
   const audio = document.querySelector("audio");
   audio.volume = 0.4;
   audio.play();
 });
+
+let mx = 0;
+let my = 0;
+
+document.addEventListener("mousemove", (e)=>{
+	mx = e.clientX;
+	my = e.clientY;
+});
+
+var height = document.body.clientHeight;
+var width = document.body.clientWidth;
+
+const rh = (260/1080)*height;
+const rw = (350/1920)*width;
+
+let dusts = [];
+
+for (let i = 0; i < 34; i++) {
+	let d = document.createElement("div");
+	d.className = "dust";
+	d.style="position: absolute; left: "+(width*.332+Math.random()*rw)+"px; top: "+(height*.3+Math.random()*rh)+"px;";
+	document.body.appendChild(d);
+	dusts.push(d);
+}
+
+function step(){
+	
+	dusts.forEach((e,i)=>{
+		let l = parseFloat(e.style.left.slice(0,-2));
+		let t = parseFloat(e.style.top.slice(0,-2));
+		
+		vx = perlin.noise(l * 0.05 + Date.now()/6000, t * 0.05 + i/4 )+perlin.noise(Date.now()/200, l )*.5;
+		vy = perlin.noise(t * 0.05 + Date.now()/6000, l * 0.08 + i/5 )+Math.random()*.1;
+		
+		//console.log(l+vx);
+		
+		vx+=((width*.352-(l+vx))**3)*0.0000000060517578125
+		//vy+=((height*.33-(t+vy))**3)*-0.000030517578125
+		vy+=((height*.33-(t+vy))**3)*0.000000010517578125
+		
+		if ((l-mx)**2 + (t-my)**2 <320) {
+			vx += (mx-l)*0.1
+			vy += (my-t)*0.1
+		}
+		
+		e.style="position: absolute; left: "+(l+vx)+"px; top: "+(t+vy)+"px;";
+		
+	})
+	
+	window.requestAnimationFrame(step);
+}
+
+window.requestAnimationFrame(step);
+
 </script>
 </body></html>
