@@ -99,8 +99,9 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
 	
-	setCookie((elmnt.offsetTop - pos2),'cby',1);
-	setCookie((elmnt.offsetLeft - pos1),'cbx',1);
+	/* never do this heinous crime */
+	//setCookie((elmnt.offsetTop - pos2),'cby',1);
+	//setCookie((elmnt.offsetLeft - pos1),'cbx',1);
   }
 }
 		</script>
