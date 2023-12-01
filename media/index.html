@@ -4,14 +4,14 @@
 <style>
 .dust {
 	background-color: #ef0aff;
-	width: 3px;
-	height: 3px;
-	box-shadow: #50fd 0px 0px 30px 6px;
+	width: 1px;
+	height: 1px;
+	box-shadow: #50f8 0px 0px 7px 3px;
 }
 </style>
 </head>
 <body style="background-image: url('https://big.gunchus.zip/media/puterRoom.png');background-size: cover;image-rendering: pixelated; margin:0px; height: 100vh;">
-<audio src="gunchus_cave_ambience.mp3"></audio>
+<audio src="gunchus_cave_ambience.mp3" loop></audio>
 <script>
 
 class PerlinNoise {
@@ -87,10 +87,10 @@ const rw = (350/1920)*width;
 
 let dusts = [];
 
-for (let i = 0; i < 34; i++) {
+for (let i = 0; i < 30; i++) {
 	let d = document.createElement("div");
 	d.className = "dust";
-	d.style="position: absolute; left: "+(width*.332+Math.random()*rw)+"px; top: "+(height*.3+Math.random()*rh)+"px;";
+	d.style="position: absolute; left: "+(width*.3+Math.random()*rw)+"px; top: "+(height*.34+Math.random()*rh)+"px;";
 	document.body.appendChild(d);
 	dusts.push(d);
 }
@@ -101,18 +101,18 @@ function step(){
 		let l = parseFloat(e.style.left.slice(0,-2));
 		let t = parseFloat(e.style.top.slice(0,-2));
 		
-		vx = perlin.noise(l * 0.05 + Date.now()/6000, t * 0.05 + i/4 )+perlin.noise(Date.now()/200, l )*.5;
-		vy = perlin.noise(t * 0.05 + Date.now()/6000, l * 0.08 + i/5 )+Math.random()*.1;
+		vx = perlin.noise(l * 0.05 + Date.now()/6000, t * 0.05 + i/4 )*.1+perlin.noise(Date.now()/200, l )*.05;
+		vy = perlin.noise(t * 0.05 + Date.now()/6000, l * 0.08 + i/5 )*.1+Math.random()*.01;
 		
 		//console.log(l+vx);
 		
-		vx+=((width*.352-(l+vx))**3)*0.0000000060517578125
+		vx+=((width*.4-(l+vx))**3)*0.00000030517578125
 		//vy+=((height*.33-(t+vy))**3)*-0.000030517578125
-		vy+=((height*.33-(t+vy))**3)*0.000000010517578125
+		vy+=((height*.33-(t+vy))**3)*0.0000005517578125
 		
 		if ((l-mx)**2 + (t-my)**2 <320) {
-			vx += (mx-l)*0.1
-			vy += (my-t)*0.1
+			vx += (mx-l)*0.02
+			vy += (my-t)*0.02
 		}
 		
 		e.style="position: absolute; left: "+(l+vx)+"px; top: "+(t+vy)+"px;";
